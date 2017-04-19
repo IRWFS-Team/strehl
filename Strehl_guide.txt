@@ -1,0 +1,22 @@
+How to run the Strehl code.
+
+1) save several .tif files in a folder labelled "strehl_data"
+
+Alter the code in the following way
+2) in the "actual" method:
+	- change the the line "data = np.zeros([330,320])" so that the list "[330,320]" is the shape of the data in the .tif files
+	- change the number in the first for loop ("for i in range(10):") to be the number of datafiles you wish to use to determine the integrated strehl (use 1 for the instantaneous)
+	- change the line "temp = plt.imread("strehl_data/no_turb_2017-03-28-170023-000"+str(i)+".tif")" so that "no_turb_2017-03-28-170023-000"+str(i)+".tif" is the filename of the i'th datafile
+	- change the variable "centre1" to your guess for the X coordinate of the centroid (Note: the centroiding algorithm may not work well)
+	- change the variable "centre2" to your guess for the Y coordinate of the centroid  (Note: the centroiding algorithm may not work well)
+	- change the variable "tol" to the number of pixels to either side of the centroid you want to include in the normalization of the PSF
+3) in the "ideal" method:
+	- change the variables "x_room" and "y_room" to the same value you set for "tol" above
+4) in the rest of the code:
+	- set parameter: "f" to the focal length (in m) of the focussing lens
+			 "d" to the aperture diameter (in m)
+			 "wavelength" to the wavelength (in m) of the light source 
+			 "pixel_size" to the pixel size (in m) of the science camera
+
+
+
